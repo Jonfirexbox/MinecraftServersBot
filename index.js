@@ -1,3 +1,12 @@
+/*
+    ____              ____        __     __  __           __  _
+   / __ \____ _____  / __ )____  / /_   / / / /___  _____/ /_(_)___  ____ _
+  / / / / __ `/ __ \/ __  / __ \/ __/  / /_/ / __ \/ ___/ __/ / __ \/ __ `/
+ / /_/ / /_/ / / / / /_/ / /_/ / /_   / __  / /_/ (__  ) /_/ / / / / /_/ /
+/_____/\__,_/_/ /_/_____/\____/\__/  /_/ /_/\____/____/\__/_/_/ /_/\__, /
+Free Hosting forever!                                            /____/
+*/
+
 //Global Defined
 global.Discord = require("discord.js");
 global.fs = require("node-fs-extra");
@@ -22,7 +31,7 @@ client.on("ready", async () => {
   client.user.setActivity('Minecraft | Free Minecraft Servers!')
 
   //Start posting stats (DanBotHosting)
-  const API = new DanBotHosting.Client(config.DanBotHosting.apikey, client);
+  const API = new DanBotHosting.Client(config.DanBotHosting, client);
  
   // Start posting
   let initalPost = await API.autopost();
@@ -67,7 +76,7 @@ client.on('message', message => {
         minecraftServerProcess.stdin.write(message.content);
     }
     if (message.author.bot) return;
-    if (message.author.id == "137624084572798976") {
+    if (message.author.id == "680506811031355413") {
 
     const prefix = settings.get(message.guild.id).prefix;
     if (message.content.indexOf(prefix) !== 0) return;
@@ -95,4 +104,4 @@ process.on('exit', function() {
     });
   });
 
-client.login(config.DiscordBot.token);
+client.login(config.DiscordBot);
